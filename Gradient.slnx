@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Gradient.vcxproj" Id="609867c4-6b38-4271-9656-79a030d1e45a" />
+</Solution>
