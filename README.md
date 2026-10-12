@@ -95,8 +95,3 @@ g++ main.cpp utils/utils.cpp shaders/programs.cpp ui/mainmenu.cpp -o gradient.ex
 *(Note: The `-l` linking arguments depend on where you have installed the libraries on your system and the include paths for headers like ImGui and GLM).*
 
 ---
-
-## Development Notes
-
-* **Inclusions (`#include`):** Each `.cpp` file is compiled in isolation and manages its own local headers.
-* **Global State:** The shared application state is managed centrally within the `gradient` namespace inside `gradient.h` using `inline` variables.
