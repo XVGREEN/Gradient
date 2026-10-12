@@ -1,3 +1,9 @@
-constexpr bool inRect(float x, float y, float rx, float ry, float rw, float rh) {
-	return ((x > rx && y > ry) && (x < rw && y < rh));
+#pragma once
+#include <GL/glew.h> 
+namespace gradient {
+
+    GLuint compileShader(GLenum type, const char* src);
+    GLuint createShaderProgram(const char* vertexSrc, const char* fragmentSrc);
+   
+   
 }

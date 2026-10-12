@@ -140,9 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="shaders\programs.cpp" />
+    <ClCompile Include="state\globals.h" />
+    <ClCompile Include="utils\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gradient.h" />
+    <ClInclude Include="shaders\programs.h" />
     <ClInclude Include="shaders\shaders.h" />
+    <ClInclude Include="ui\layerbar.h" />
+    <ClInclude Include="ui\mainmenu.h" />
+    <ClInclude Include="ui\toolbar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
