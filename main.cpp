@@ -2,7 +2,6 @@
 #include <stb_image.h>
 #include "gradient.h"
 
-
 int main()
 {
     glfwInit();
@@ -127,57 +126,7 @@ int main()
         float scalex = gradient::resolution.x / winW;
         float scaley = gradient::resolution.y / winH;
         gradient::drawImageQuad(main_viewport.x, main_viewport.y, main_viewport.z, main_viewport.w, gradient::app_time, glm::vec2(mousex*scalex, mousey*scaley),gradient::filter_preview,gradient::program);
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-     
-        gradient::drawmenu();
-        //tools window
-        ImGui::SetNextWindowBgAlpha(WINDOWS_APHA);
-        ImGui::SetNextWindowPos(ImVec2(toolbar.x, toolbar.y));
-        ImGui::SetNextWindowSize(ImVec2(toolbar.z, toolbar.w));
-        ImGui::Begin("Tools");
-        
-        ImGui::SameLine();
-        ImGui::End();
-        //options window
-        ImGui::SetNextWindowBgAlpha(WINDOWS_APHA);
-        ImGui::SetNextWindowPos(ImVec2(options_bar.x,options_bar.y));
-        ImGui::SetNextWindowSize(ImVec2(options_bar.z, options_bar.w));
-        ImGui::Begin("Options");
-            if (gradient::program == gradient::vignete_program || gradient::program == gradient::contrast_program || gradient::program==gradient::chromatic_program  || gradient::program == gradient::gausian_program) {
-                ImGui::SliderFloat("Strength", &gradient::strength, 0., 5.);
-            }
-            if (gradient::program == gradient::color_program) {
-                ImGui::SliderFloat("Red", &gradient::red, 0., 255.);
-                ImGui::SliderFloat("Green", &gradient::green, 0., 255.);
-                ImGui::SliderFloat("Blue", &gradient::blue, 0., 255.);
-            }
-
-        ImGui::End();
-
-        //info bar 
-        ImGui::SetNextWindowBgAlpha(WINDOWS_APHA);
-        ImGui::SetNextWindowPos(ImVec2(bottom.x, bottom.y));
-        ImGui::SetNextWindowSize(ImVec2(bottom.z,bottom.w));
-        ImGui::Begin("Info");
-        ImGui::Text("Tool:Pen  |  X:%d Y:%d", (int)mousex- (int)main_viewport.x, (int)mousey-(int)main_viewport.y);
-        ImGui::SameLine();
-        ImGui::Text((std::string("     Preview Mode:") + std::string((gradient::filter_preview) ? "yes" : "no")).c_str());
-        ImGui::SameLine();
-        ImGui::Indent(gradient::resolution.x * .35);
-        ImGui::SetNextItemWidth(gradient::resolution.x * .1);
-        ImGui::SliderFloat("Zoom:", &gradient::ZOOM, .0, 5.0);
-        ImGui::SameLine();
-        ImGui::Indent(300.);
-        ImGui::SetNextItemWidth(gradient::resolution.x * .1);
-        ImGui::SliderFloat("Rotation:", &gradient::rotation, .0, gradient::PI);
-        ImGui::End();
-        
-
-
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        gradient::drawui(toolbar,options_bar,bottom,main_viewport,glm::vec2(mousex,mousey));
       
         glfwSwapBuffers(window);
 

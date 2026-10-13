@@ -150,9 +150,11 @@
     <ClInclude Include="gradient.h" />
     <ClInclude Include="shaders\programs.h" />
     <ClInclude Include="shaders\shaders.h" />
-    <ClInclude Include="ui\layerbar.h" />
+    <ClInclude Include="ui\lowbar.h" />
+    <ClInclude Include="ui\options.h" />
     <ClInclude Include="ui\mainmenu.h" />
-    <ClInclude Include="ui\toolbar.h" />
+    <ClInclude Include="ui\ui.h" />
+    <ClInclude Include="ui\tools.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

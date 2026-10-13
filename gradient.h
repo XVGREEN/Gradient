@@ -13,5 +13,5 @@
 #include "state/globals.h"
 #include "utils/utils.h"
 #include "shaders/programs.h"
-#include "ui/mainmenu.h"
+#include "ui/ui.h"
 #include "events/events.h"

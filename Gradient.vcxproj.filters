@@ -41,16 +41,22 @@
     <ClInclude Include="gradient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\toolbar.h">
+    <ClInclude Include="ui\tools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\layerbar.h">
+    <ClInclude Include="ui\options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="shaders\programs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="events\events.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\lowbar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
