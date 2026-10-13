@@ -139,12 +139,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="events\events.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shaders\programs.cpp" />
     <ClCompile Include="state\globals.h" />
     <ClCompile Include="utils\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="events\events.h" />
     <ClInclude Include="gradient.h" />
     <ClInclude Include="shaders\programs.h" />
     <ClInclude Include="shaders\shaders.h" />

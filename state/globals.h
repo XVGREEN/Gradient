@@ -3,13 +3,14 @@
 #include <string>
 
 namespace gradient {
+    //App globals
     #define WINDOWS_APHA 0.7f 
     const float PI = 3.1415f;
     constexpr float FILTERBOX_RATIOX = 0.1f;
     constexpr float FILTERBOX_RATIOY = 0.2f;
     constexpr float CANVAS_START = 25.0f;
     constexpr float MOVE_IMAGE_SPEED = 1.0f;
-
+    
     #define LAYER_BAR_RATIO 0.1f
     #define TOOL_BAR_RATIO 0.1f
     #define TIME_SPEED (1.0f / 60.0f)
@@ -29,4 +30,9 @@ namespace gradient {
     inline float rotation = 0.0f;
     inline double app_time = 0.0;
     inline std::string current_word;
+
+
+
+     inline unsigned int quadVAO = 0, quadVBO = 0;
+     inline unsigned int quadShaderProgram = 0;
 }

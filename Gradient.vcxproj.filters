@@ -27,6 +27,9 @@
     <ClCompile Include="state\globals.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="events\events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaders\shaders.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="shaders\programs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="events\events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

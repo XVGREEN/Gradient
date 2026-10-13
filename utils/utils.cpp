@@ -1,6 +1,7 @@
 #include <iostream>
 #include "utils.h"
 
+
 namespace gradient {
 	
     GLuint compileShader(GLenum type, const char* src) {
@@ -42,24 +43,84 @@ namespace gradient {
     }
 
 
+    void setupFullscreenQuad() {
+        float quadVertices[] = {
+
+            -1.0f, -1.0f,
+             1.0f, -1.0f,
+             1.0f,  1.0f,
+
+            -1.0f, -1.0f,
+             1.0f,  1.0f,
+            -1.0f,  1.0f,
+        };
+
+        glGenVertexArrays(1, &quadVAO);
+        glGenBuffers(1, &quadVBO);
+
+        glBindVertexArray(quadVAO);
+        glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+
+        glBindVertexArray(0);
+
+
+    }
 
 
 
 
 
-    //void drawfilterBox(int x, int y, unsigned int program) {
-    //    float width = FILTERBOX_RATIOX * resolution.x;
-    //    float height =  FILTERBOX_RATIOY * resolution.y;
-    //    glViewport(x, y, width, height);
-    //    glUseProgram(program);
-    //    glUniform3f(glGetUniformLocation(program, "iResolution"), width, height, 1.0f);
-    //    glUniform1f(glGetUniformLocation(program, "iTime"), 1.);
-    //    glUniform2f(glGetUniformLocation(program, "viewport"), x, y);
-    //    glBindVertexArray(quadVAO);
-    //    glDrawArrays(GL_TRIANGLES, 0, 6);
-    //    glBindVertexArray(0);
-    //}
+
+    unsigned int load_texture(const char* path, float& w, float& h) {
+        unsigned int texture;
+        glGenTextures(1, &texture);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        int width, height, channels;
+        unsigned char* buffer;
+
+        buffer = stbi_load(path, &width, &height, &channels, 0);
+        if (!buffer) {
+            printf("image not loaded");
+            return 0;
+        }
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, buffer);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        w = width;
+        h = height;
+        stbi_image_free(buffer);
+
+        return texture;
+    }
 
 
+    void drawImageQuad(int x, int y, int width, int height, float time, glm::vec2 mouse, bool preview, unsigned int program) {
+        glViewport(x, y, width, height);
 
+        glUseProgram(gradient::program);
+        glUniform3f(glGetUniformLocation(program, "iResolution"), (float)width, (float)height, 1.0f);
+        glUniform1f(glGetUniformLocation(program, "iTime"), time);
+        glUniform2f(glGetUniformLocation(program, "mouse"), (float)mouse.x, (float)mouse.y);
+        glUniform2f(glGetUniformLocation(program, "viewport"), x, y);
+        glUniform1f(glGetUniformLocation(program, "preview"), (preview) ? 1. : 0.);
+        glUniform1f(glGetUniformLocation(program, "strength"), strength);
+        glUniform1f(glGetUniformLocation(program, "rotation"), rotation);
+        glUniform1f(glGetUniformLocation(program, "red"),red);
+        glUniform1f(glGetUniformLocation(program, "green"), green);
+        glUniform1f(glGetUniformLocation(program, "blue"),blue);
+
+        glBindVertexArray(quadVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+    }
+
+    
 }
