@@ -31,12 +31,12 @@ int main()
     float img_ratio = img_width / img_heigth;
 
     gradient::setupFullscreenQuad();
-    gradient::initPrograms();
+    gradient::shaders::initPrograms();
    
    // ImGui::GetIO().Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\segoeui.ttf", 16.0f);
     ImGui::GetIO().Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\corbel.ttf", 10.0f);
 
-    glfwSetKeyCallback(window, gradient::key_callback);
+    glfwSetKeyCallback(window, gradient::events::key_callback);
     while (!glfwWindowShouldClose(window))
     {
         using vec2 = glm::vec2;
@@ -126,7 +126,7 @@ int main()
         float scalex = gradient::resolution.x / winW;
         float scaley = gradient::resolution.y / winH;
         gradient::drawImageQuad(main_viewport.x, main_viewport.y, main_viewport.z, main_viewport.w, gradient::app_time, glm::vec2(mousex*scalex, mousey*scaley),gradient::filter_preview,gradient::program);
-        gradient::drawui(toolbar,options_bar,bottom,main_viewport,glm::vec2(mousex,mousey));
+        gradient::ui::drawui(toolbar, options_bar, bottom, main_viewport, glm::vec2(mousex, mousey));
       
         glfwSwapBuffers(window);
 

@@ -3,6 +3,7 @@
 #include <string>
 
 namespace gradient {
+
     //App globals
     #define WINDOWS_APHA 0.7f 
     const float PI = 3.1415f;

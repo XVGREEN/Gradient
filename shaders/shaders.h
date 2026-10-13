@@ -1,8 +1,8 @@
 #pragma once
 namespace gradient {
-
-    // --- Placeholder fullscreen-quad shader (replace with the real one tomorrow) ---
-    static const char* default_vertex_src = R"(
+    namespace shaders {
+        // --- Placeholder fullscreen-quad shader (replace with the real one tomorrow) ---
+        static const char* default_vertex_src = R"(
     #version 330 core
     layout (location = 0) in vec2 aPos;
     uniform float rotation;
@@ -16,7 +16,7 @@ namespace gradient {
     )";
 
 
-    static const char* default_fragment_src = R"(
+        static const char* default_fragment_src = R"(
 
     #version 330 core
     out vec4 FragColor;
@@ -371,4 +371,5 @@ namespace gradient {
         mainImage(FragColor, FC);
     }
     )";
+    }
 }
