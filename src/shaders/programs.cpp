@@ -40,7 +40,7 @@ namespace gradient {
         unsigned int halftone_program;
         unsigned int turbulence_program;
 
-        static const std::string SHADER_DIR = "shaders/glsl/";
+        static const std::string SHADER_DIR = "src/shaders/glsl/";
 
         std::string load_shader(const std::string& path) {
             std::ifstream file(path);

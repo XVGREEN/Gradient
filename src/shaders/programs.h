@@ -12,8 +12,6 @@ namespace gradient {
         extern unsigned int gausian_program;
         extern unsigned int matrix_program;
         extern unsigned int color_program;
-
-        // extra filters
         extern unsigned int brightness_program;
         extern unsigned int saturation_program;
         extern unsigned int invert_program;

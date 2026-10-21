@@ -3,23 +3,20 @@
 #include <string>
 #include <cstring>
 
-// Needs: ImGui, and gradient::program / strength / red / green / blue (core.h),
-//        gradient::shaders::*_program (programs.h). C++17 (inline variables).
-
 namespace gradient {
     namespace ui {
 
         struct Param {
             const char* label;
-            float* value;   // points at the global the shader reads (strength, red, ...)
-            float       min, max, def;
+            float* value;
+            float min, max, def;
         };
 
         struct FilterDef {
             const char* name;
-            const char* group;   // submenu it appears in under Filters
-            unsigned int* prog;    // pointer, because the program ids are assigned in initPrograms()
-            std::vector<Param>  params;  // empty = applies instantly, no popup
+            const char* group;                // submenu under Filters
+            unsigned int* prog;               // pointer: ids are assigned in initPrograms()
+            std::vector<Param> params;        // empty = applies instantly, no popup
         };
 
         // ---------- registry ----------
@@ -66,8 +63,8 @@ namespace gradient {
         }
 
         // ---------- popup state ----------
-        inline const FilterDef* open_filter = nullptr;   // filter whose popup is showing
-        inline bool                has_snapshot = false;     // state from before the popup opened
+        inline const FilterDef* open_filter = nullptr;
+        inline bool                has_snapshot = false;
         inline unsigned int        snap_program = 0;
         inline std::vector<float>  snap_values;
 
@@ -100,18 +97,17 @@ namespace gradient {
         // called from the menu
         inline void selectFilter(const FilterDef& f) {
             if (f.params.empty()) {
-                // no parameters: apply instantly, close any open popup
+                // no parameters: apply instantly
                 applyFilter();
                 gradient::program = *f.prog;
                 return;
             }
             if (!has_snapshot) {
-                // remember what was active before the first popup so Cancel can restore it
-                // (the snapshot of the previous program only, values are of this filter's params)
+                // remember the active program so Cancel can restore it
                 takeSnapshot(f);
             }
             else {
-                // switching between popups: keep the original program, refresh the values snapshot
+                // switching between popups: keep the original program
                 unsigned int keep = snap_program;
                 takeSnapshot(f);
                 snap_program = keep;
@@ -136,7 +132,7 @@ namespace gradient {
             }
         }
 
-        // ---------- the popup window (call once per frame, outside any menu) ----------
+        // ---------- popup window (call once per frame, outside any menu) ----------
         inline void drawFilterPopup() {
             if (!open_filter) return;
             const FilterDef& f = *open_filter;
@@ -144,7 +140,7 @@ namespace gradient {
             ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(),
                 ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 
-            // "###" keeps the window id fixed while the visible title changes per filter
+            // "###" keeps the window id fixed while the title changes
             std::string title = std::string(f.name) + "###filter_popup";
             bool open = true;
 
@@ -162,7 +158,7 @@ namespace gradient {
             }
             ImGui::End();
 
-            if (!open) cancelFilter();   
+            if (!open) cancelFilter();
         }
     }
 }

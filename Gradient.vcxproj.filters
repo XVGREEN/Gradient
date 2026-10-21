@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -15,97 +15,97 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="shaders\programs.cpp">
+    <ClCompile Include="src\shaders\programs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="core\core.cpp">
+    <ClCompile Include="src\core\core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="state\globals.h">
+    <ClCompile Include="src\state\globals.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="events\events.cpp">
+    <ClCompile Include="src\events\events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="images\image.cpp">
+    <ClCompile Include="src\images\image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shaders\shaders.h">
+    <ClInclude Include="src\shaders\shaders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\mainmenu.h">
+    <ClInclude Include="src\ui\mainmenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gradient.h">
+    <ClInclude Include="src\gradient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\tools.h">
+    <ClInclude Include="src\ui\tools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\options.h">
+    <ClInclude Include="src\ui\options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="shaders\programs.h">
+    <ClInclude Include="src\shaders\programs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="events\events.h">
+    <ClInclude Include="src\events\events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\ui.h">
+    <ClInclude Include="src\ui\ui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\lowbar.h">
+    <ClInclude Include="src\ui\lowbar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="images\image.h">
+    <ClInclude Include="src\ui\filter_popup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui\filter_popup.h">
+    <ClInclude Include="src\core\open_file_dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\open_file_dialog.h">
+    <ClInclude Include="src\core\save_as_dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\save_as_dialog.h">
+    <ClInclude Include="src\images\image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\glsl\default.vert" />
-    <None Include="shaders\glsl\default.frag" />
-    <None Include="shaders\glsl\vignette.frag" />
-    <None Include="shaders\glsl\contrast.frag" />
-    <None Include="shaders\glsl\grayscale.frag" />
-    <None Include="shaders\glsl\chromatic.frag" />
-    <None Include="shaders\glsl\gaussian.frag" />
-    <None Include="shaders\glsl\color_balance.frag" />
-    <None Include="shaders\glsl\matrix.frag" />
-    <None Include="shaders\glsl\brightness.frag" />
-    <None Include="shaders\glsl\saturation.frag" />
-    <None Include="shaders\glsl\invert.frag" />
-    <None Include="shaders\glsl\sepia.frag" />
-    <None Include="shaders\glsl\threshold.frag" />
-    <None Include="shaders\glsl\posterize.frag" />
-    <None Include="shaders\glsl\duotone.frag" />
-    <None Include="shaders\glsl\hue_shift.frag" />
-    <None Include="shaders\glsl\s_curve.frag" />
-    <None Include="shaders\glsl\film_grain.frag" />
-    <None Include="shaders\glsl\pixelate.frag" />
-    <None Include="shaders\glsl\wave.frag" />
-    <None Include="shaders\glsl\barrel.frag" />
-    <None Include="shaders\glsl\swirl.frag" />
-    <None Include="shaders\glsl\mirror.frag" />
-    <None Include="shaders\glsl\glitch.frag" />
-    <None Include="shaders\glsl\sharpen.frag" />
-    <None Include="shaders\glsl\edge_detect.frag" />
-    <None Include="shaders\glsl\emboss.frag" />
-    <None Include="shaders\glsl\bloom.frag" />
-    <None Include="shaders\glsl\halftone.frag" />
-    <None Include="shaders\glsl\turbulence.frag" />
+    <None Include="src\shaders\glsl\default.vert" />
+    <None Include="src\shaders\glsl\default.frag" />
+    <None Include="src\shaders\glsl\vignette.frag" />
+    <None Include="src\shaders\glsl\contrast.frag" />
+    <None Include="src\shaders\glsl\grayscale.frag" />
+    <None Include="src\shaders\glsl\chromatic.frag" />
+    <None Include="src\shaders\glsl\gaussian.frag" />
+    <None Include="src\shaders\glsl\color_balance.frag" />
+    <None Include="src\shaders\glsl\matrix.frag" />
+    <None Include="src\shaders\glsl\brightness.frag" />
+    <None Include="src\shaders\glsl\saturation.frag" />
+    <None Include="src\shaders\glsl\invert.frag" />
+    <None Include="src\shaders\glsl\sepia.frag" />
+    <None Include="src\shaders\glsl\threshold.frag" />
+    <None Include="src\shaders\glsl\posterize.frag" />
+    <None Include="src\shaders\glsl\duotone.frag" />
+    <None Include="src\shaders\glsl\hue_shift.frag" />
+    <None Include="src\shaders\glsl\s_curve.frag" />
+    <None Include="src\shaders\glsl\film_grain.frag" />
+    <None Include="src\shaders\glsl\pixelate.frag" />
+    <None Include="src\shaders\glsl\wave.frag" />
+    <None Include="src\shaders\glsl\barrel.frag" />
+    <None Include="src\shaders\glsl\swirl.frag" />
+    <None Include="src\shaders\glsl\mirror.frag" />
+    <None Include="src\shaders\glsl\glitch.frag" />
+    <None Include="src\shaders\glsl\sharpen.frag" />
+    <None Include="src\shaders\glsl\edge_detect.frag" />
+    <None Include="src\shaders\glsl\emboss.frag" />
+    <None Include="src\shaders\glsl\bloom.frag" />
+    <None Include="src\shaders\glsl\halftone.frag" />
+    <None Include="src\shaders\glsl\turbulence.frag" />
   </ItemGroup>
 </Project>

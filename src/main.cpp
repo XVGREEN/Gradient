@@ -123,8 +123,6 @@ int main()
         canvas.z = options_bar.x - (toolbar.x + toolbar.z);
         canvas.w = options_bar.w;
 
-
-
         vec4 main_viewport = vec4();
         main_viewport.x = (gradient::resolution.x) / 2. - ((img_width * gradient::ZOOM) / 2.);
         main_viewport.y = (gradient::resolution.y) / 2. - ((img_heigth * gradient::ZOOM) / 2.);
@@ -135,15 +133,11 @@ int main()
         main_viewport.x += gradient::center.x;
         main_viewport.y += gradient::center.y;
 
-
-
         vec4 bottom = vec4(0);
         bottom.x = 0;
         bottom.y = options_bar.w;
         bottom.z = gradient::resolution.x;
         bottom.w = gradient::resolution.y - options_bar.w;
-
-
 
         glClearColor(bgColor[0], bgColor[1], bgColor[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
