@@ -2,6 +2,8 @@
 #include <GL/glew.h> 
 #include <GLFW/glfw3.h>
 #include "../state/globals.h"
+#include "open_file_dialog.h"
+#include "save_as_dialog.h"
 namespace gradient {
 
     extern GLuint compileShader(GLenum type, const char* src);

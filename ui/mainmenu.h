@@ -1,13 +1,23 @@
 #pragma once
+#include "../core/open_file_dialog.h"
 namespace gradient {
     namespace ui {
-        void drawmenu() {
+
+        
+        inline void filterItem(const char* label, unsigned int prog, float defaultStrength = 0.f) {
+            if (ImGui::MenuItem(label, nullptr, program == prog)) {
+                program = prog;
+                strength = defaultStrength;
+            }
+        }
+
+        inline void drawmenu() {
             if (ImGui::BeginMainMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
                     if (ImGui::MenuItem("New", "Ctrl+N")) {
                     }
                     if (ImGui::MenuItem("Open", "Ctrl+O")) {
-                        printf("baka");
+                        gradient::core::open_requested = true;
                     }
                     if (ImGui::MenuItem("Save", "Ctrl+S")) {
                     }
@@ -15,13 +25,13 @@ namespace gradient {
                     }
                     if (ImGui::MenuItem("Exit")) {
                     }
-
                     ImGui::EndMenu();
                 }
+
                 if (ImGui::BeginMenu("Edit")) {
                     if (ImGui::MenuItem("Undo", "Ctrl+Z")) {
                     }
-                    if (ImGui::MenuItem("Redo", "Ctrl + Y")) {
+                    if (ImGui::MenuItem("Redo", "Ctrl+Y")) {
                     }
                     ImGui::EndMenu();
                 }
@@ -35,48 +45,15 @@ namespace gradient {
                 }
 
                 if (ImGui::BeginMenu("Filters")) {
-                    if (ImGui::MenuItem("Vignete")) {
-                        program = gradient::shaders::vignete_program;
-                    }
-                    if (ImGui::MenuItem("adjust color")) {
-                        program = gradient::shaders::color_program;
-                        strength = 0;
-                    }
-
-                    if (ImGui::MenuItem("contrast")) {
-                        program = gradient::shaders::contrast_program;
-                        strength = 0;
-                    }
-                    if (ImGui::MenuItem("Chormatic")) {
-                        program = gradient::shaders::chromatic_program;
-                        strength = 0;
-                    }
-                    if (ImGui::MenuItem("Radial chormatic")) {
-                        program = gradient::shaders::radial_program;
-                        strength = 0;
-                    }
-                    if (ImGui::MenuItem("grayscale")) {
-                        program = gradient::shaders::gray_program;
-                        strength = 0;
-                    }
-                    if (ImGui::MenuItem("gausin")) {
-                        program = gradient::shaders::gausian_program;
-                        strength = 0;
-                    }
-                    if (ImGui::MenuItem("matrix")) {
-                        program = gradient::shaders::matrix_program;
-                        strength = 0;
-                    }
+                    drawFiltersMenu();
                     ImGui::EndMenu();
-
                 }
 
                 if (ImGui::BeginMenu("Settings")) {
-                    if (ImGui::MenuItem("Filter Preview Mode")) {
+                    if (ImGui::MenuItem("Filter Preview Mode", nullptr, filter_preview)) {
                         filter_preview = !filter_preview;
                     }
                     ImGui::EndMenu();
-
                 }
 
                 if (ImGui::BeginMenu("Help")) {
@@ -86,9 +63,9 @@ namespace gradient {
                     }
                     ImGui::EndMenu();
                 }
+
                 ImGui::EndMainMenuBar();
             }
-
         }
     }
 }

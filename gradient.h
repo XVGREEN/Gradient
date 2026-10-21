@@ -10,8 +10,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "images/image.h"
 #include "state/globals.h"
-#include "utils/utils.h"
-#include "shaders/programs.h"
+#include "core/core.h"
+#include "shaders/shaders.h"
 #include "ui/ui.h"
 #include "events/events.h"

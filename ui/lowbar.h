@@ -18,7 +18,7 @@ namespace gradient {
             ImGui::SameLine();
             ImGui::Indent(300.);
             ImGui::SetNextItemWidth(resolution.x * .1);
-            ImGui::SliderFloat("Rotation:", &rotation, .0, PI);
+            ImGui::SliderFloat("Rotation:", &rotation, .0, PI*2.f);
             ImGui::End();
 
         }

@@ -11,5 +11,20 @@ namespace gradient {
             }
 
         }
+        void handle_press_events(GLFWwindow * window) {
+
+            if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+                gradient::center.x -= gradient::MOVE_IMAGE_SPEED;
+            }
+            if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+                gradient::center.x += gradient::MOVE_IMAGE_SPEED;
+            }
+            if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+                gradient::center.y += gradient::MOVE_IMAGE_SPEED;
+            }
+            if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+                gradient::center.y -= gradient::MOVE_IMAGE_SPEED;
+            }
+        }
     }
 }

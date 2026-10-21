@@ -1,5 +1,5 @@
 #include <iostream>
-#include "utils.h"
+#include "core.h"
 
 
 namespace gradient {
@@ -45,14 +45,14 @@ namespace gradient {
 
     void setupFullscreenQuad() {
         float quadVertices[] = {
+            
+                -1.0f, -1.0f, 0.f, 0.f,   
+                 1.0f, -1.0f, 1.f, 0.f,   
+                 1.0f,  1.0f, 1.f, 1.f,   
 
-            -1.0f, -1.0f,
-             1.0f, -1.0f,
-             1.0f,  1.0f,
-
-            -1.0f, -1.0f,
-             1.0f,  1.0f,
-            -1.0f,  1.0f,
+                -1.0f, -1.0f, 0.f, 0.f,  
+                 1.0f,  1.0f, 1.f, 1.f,   
+                -1.0f,  1.0f, 0.f, 1.f    
         };
 
         glGenVertexArrays(1, &quadVAO);
@@ -62,8 +62,12 @@ namespace gradient {
         glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
         glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
 
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
+
+
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(sizeof(float)*2));
+        glEnableVertexAttribArray(1);
 
         glBindVertexArray(0);
 
@@ -79,8 +83,8 @@ namespace gradient {
         unsigned int texture;
         glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -107,7 +111,7 @@ namespace gradient {
 
         glUseProgram(gradient::program);
         glUniform3f(glGetUniformLocation(program, "iResolution"), (float)width, (float)height, 1.0f);
-        glUniform1f(glGetUniformLocation(program, "iTime"), time);
+        glUniform1f(glGetUniformLocation(program, "iTime"), 0.0);
         glUniform2f(glGetUniformLocation(program, "mouse"), (float)mouse.x, (float)mouse.y);
         glUniform2f(glGetUniformLocation(program, "viewport"), x, y);
         glUniform1f(glGetUniformLocation(program, "preview"), (preview) ? 1. : 0.);

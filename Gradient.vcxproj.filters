@@ -21,13 +21,16 @@
     <ClCompile Include="shaders\programs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="utils\utils.cpp">
+    <ClCompile Include="core\core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="state\globals.h">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="events\events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="images\image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,5 +62,50 @@
     <ClInclude Include="ui\lowbar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="images\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\filter_popup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\open_file_dialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\save_as_dialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\glsl\default.vert" />
+    <None Include="shaders\glsl\default.frag" />
+    <None Include="shaders\glsl\vignette.frag" />
+    <None Include="shaders\glsl\contrast.frag" />
+    <None Include="shaders\glsl\grayscale.frag" />
+    <None Include="shaders\glsl\chromatic.frag" />
+    <None Include="shaders\glsl\gaussian.frag" />
+    <None Include="shaders\glsl\color_balance.frag" />
+    <None Include="shaders\glsl\matrix.frag" />
+    <None Include="shaders\glsl\brightness.frag" />
+    <None Include="shaders\glsl\saturation.frag" />
+    <None Include="shaders\glsl\invert.frag" />
+    <None Include="shaders\glsl\sepia.frag" />
+    <None Include="shaders\glsl\threshold.frag" />
+    <None Include="shaders\glsl\posterize.frag" />
+    <None Include="shaders\glsl\duotone.frag" />
+    <None Include="shaders\glsl\hue_shift.frag" />
+    <None Include="shaders\glsl\s_curve.frag" />
+    <None Include="shaders\glsl\film_grain.frag" />
+    <None Include="shaders\glsl\pixelate.frag" />
+    <None Include="shaders\glsl\wave.frag" />
+    <None Include="shaders\glsl\barrel.frag" />
+    <None Include="shaders\glsl\swirl.frag" />
+    <None Include="shaders\glsl\mirror.frag" />
+    <None Include="shaders\glsl\glitch.frag" />
+    <None Include="shaders\glsl\sharpen.frag" />
+    <None Include="shaders\glsl\edge_detect.frag" />
+    <None Include="shaders\glsl\emboss.frag" />
+    <None Include="shaders\glsl\bloom.frag" />
+    <None Include="shaders\glsl\halftone.frag" />
+    <None Include="shaders\glsl\turbulence.frag" />
   </ItemGroup>
 </Project>

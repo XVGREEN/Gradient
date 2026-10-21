@@ -1,8 +1,17 @@
 #pragma once
+#pragma comment(lib, "comdlg32.lib") 
 #include "lowbar.h"
+#include "filter_popup.h"
 #include "mainmenu.h"
 #include "options.h"
 #include "tools.h"
+
+#define NOMINMAX
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <commdlg.h>
+#include <string>
+
 
 namespace gradient {
     namespace ui {
@@ -16,6 +25,7 @@ namespace gradient {
             draw_tools(tb);
             draw_options(opt);
             draw_lowbar(lowb, vp, mouse.x, mouse.y);
+            drawFilterPopup();
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         }

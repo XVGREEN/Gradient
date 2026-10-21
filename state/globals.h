@@ -1,6 +1,9 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <string>
+#include <stack>
+#include "../images/image.h"
+using history = std::stack<gradient::image>;
 
 namespace gradient {
 
@@ -31,9 +34,7 @@ namespace gradient {
     inline float rotation = 0.0f;
     inline double app_time = 0.0;
     inline std::string current_word;
-
-
-
-     inline unsigned int quadVAO = 0, quadVBO = 0;
-     inline unsigned int quadShaderProgram = 0;
+    inline unsigned int quadVAO = 0, quadVBO = 0;
+    inline unsigned int quadShaderProgram = 0;
+    inline history image_history;
 }
