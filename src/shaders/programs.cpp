@@ -67,7 +67,7 @@ namespace gradient {
 
         inline void initPrograms() {   
             std::string vert = load_shader(SHADER_DIR + "default.vert");
-            default_program = makeProgram(vert, "default.frag");
+            default_program = makeProgram(vert, "circle_shape.frag");
             vignete_program = makeProgram(vert, "vignette.frag");
             gray_program = makeProgram(vert, "grayscale.frag");
             chromatic_program = makeProgram(vert, "chromatic.frag");

@@ -9,6 +9,7 @@ namespace gradient {
                 ZOOM = 1.;
                 return;
             }
+            
 
         }
         void handle_press_events(GLFWwindow * window) {
@@ -25,6 +26,27 @@ namespace gradient {
             if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
                 gradient::center.y -= gradient::MOVE_IMAGE_SPEED;
             }
+        }
+        static void mouseButtonCallback(GLFWwindow* w, int button, int action, int mods) {
+            
+            static bool press = false;
+            if (button == GLFW_MOUSE_BUTTON_LEFT == !press) {
+                if (action == GLFW_PRESS) {
+                    double cx, cy;
+                    glfwGetCursorPos(w, &cx,&cy);
+                    start_pos = glm::vec2(cx, cy);
+
+                }
+            }
+            if (button == GLFW_MOUSE_BUTTON_LEFT && press) {
+                if (action == GLFW_RELEASE) {
+                    double cx, cy;
+                    glfwGetCursorPos(w, &cx, &cy);
+                    end_pos = glm::vec2(cx, cy);
+
+                }
+            }
+            
         }
     }
 }

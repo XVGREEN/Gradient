@@ -160,6 +160,15 @@ namespace gradient {
                     n++;
                 }
             }
+           static float color[4];
+            ImGui::ColorPicker4("Color:", color);
+
+            current_color.x = color[0];
+            current_color.y = color[1];
+            current_color.z = color[2];
+            current_color.w = color[3];
+
+
 
             ImGui::End();
         }

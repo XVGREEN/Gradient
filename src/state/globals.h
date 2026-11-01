@@ -37,4 +37,12 @@ namespace gradient {
     inline unsigned int quadVAO = 0, quadVBO = 0;
     inline unsigned int quadShaderProgram = 0;
     inline history image_history;
+
+
+    inline glm::vec2 start_pos; //start position of a shape
+    inline glm::vec2 end_pos; // end position of a shape
+    inline float thickness;
+    inline float smoothness;
+    inline glm::vec4 current_color; //current color
+
 }

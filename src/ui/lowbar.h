@@ -19,6 +19,14 @@ namespace gradient {
             ImGui::Indent(300.);
             ImGui::SetNextItemWidth(resolution.x * .1);
             ImGui::SliderFloat("Rotation:", &rotation, .0, PI*2.f);
+
+            ImGui::SameLine();
+            ImGui::SetNextItemWidth(100);
+            ImGui::SliderFloat("smooth", &smoothness, 0., 1);ImGui::SameLine();
+            ImGui::SetNextItemWidth(100);
+            ImGui::SliderFloat("thick", &thickness, 0., 1);
+           
+            
             ImGui::End();
 
         }

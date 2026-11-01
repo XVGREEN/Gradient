@@ -166,6 +166,7 @@
     <None Include="src\shaders\glsl\bloom.frag" />
     <None Include="src\shaders\glsl\brightness.frag" />
     <None Include="src\shaders\glsl\chromatic.frag" />
+    <None Include="src\shaders\glsl\circle_shape.frag" />
     <None Include="src\shaders\glsl\color_balance.frag" />
     <None Include="src\shaders\glsl\contrast.frag" />
     <None Include="src\shaders\glsl\default.frag" />
@@ -187,6 +188,7 @@
     <None Include="src\shaders\glsl\saturation.frag" />
     <None Include="src\shaders\glsl\sepia.frag" />
     <None Include="src\shaders\glsl\sharpen.frag" />
+    <None Include="src\shaders\glsl\square_shape.frag" />
     <None Include="src\shaders\glsl\swirl.frag" />
     <None Include="src\shaders\glsl\s_curve.frag" />
     <None Include="src\shaders\glsl\threshold.frag" />

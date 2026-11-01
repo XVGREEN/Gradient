@@ -107,5 +107,7 @@
     <None Include="src\shaders\glsl\bloom.frag" />
     <None Include="src\shaders\glsl\halftone.frag" />
     <None Include="src\shaders\glsl\turbulence.frag" />
+    <None Include="src\shaders\glsl\square_shape.frag" />
+    <None Include="src\shaders\glsl\circle_shape.frag" />
   </ItemGroup>
 </Project>

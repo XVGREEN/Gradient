@@ -45,14 +45,13 @@ namespace gradient {
 
     void setupFullscreenQuad() {
         float quadVertices[] = {
-            
-                -1.0f, -1.0f, 0.f, 0.f,   
-                 1.0f, -1.0f, 1.f, 0.f,   
-                 1.0f,  1.0f, 1.f, 1.f,   
+            -1.0f, -1.0f, 0.f, 0.f,   
+             1.0f, -1.0f, 1.f, 0.f,   
+             1.0f,  1.0f, 1.f, 1.f,   
 
-                -1.0f, -1.0f, 0.f, 0.f,  
-                 1.0f,  1.0f, 1.f, 1.f,   
-                -1.0f,  1.0f, 0.f, 1.f    
+                        -1.0f, -1.0f, 0.f, 0.f,  
+                         1.0f,  1.0f, 1.f, 1.f,   
+                        -1.0f,  1.0f, 0.f, 1.f    
         };
 
         glGenVertexArrays(1, &quadVAO);
@@ -115,11 +114,28 @@ namespace gradient {
         glUniform2f(glGetUniformLocation(program, "mouse"), (float)mouse.x, (float)mouse.y);
         glUniform2f(glGetUniformLocation(program, "viewport"), x, y);
         glUniform1f(glGetUniformLocation(program, "preview"), (preview) ? 1. : 0.);
-        glUniform1f(glGetUniformLocation(program, "strength"), strength);
         glUniform1f(glGetUniformLocation(program, "rotation"), rotation);
+        
+
+
+
+        //shader especific
         glUniform1f(glGetUniformLocation(program, "red"),red);
         glUniform1f(glGetUniformLocation(program, "green"), green);
         glUniform1f(glGetUniformLocation(program, "blue"),blue);
+        glUniform1f(glGetUniformLocation(program, "strength"), strength);
+
+
+
+        //shape uniforms
+        glUniform2f(glGetUniformLocation(program, "start"), start_pos.x,start_pos.y);
+        glUniform2f(glGetUniformLocation(program, "end"), end_pos.x, start_pos.y);
+        glUniform1f(glGetUniformLocation(program, "smoothness"), smoothness);
+        glUniform1f(glGetUniformLocation(program, "thickness"), thickness);
+        glUniform4f(glGetUniformLocation(program, "color"),current_color.x,current_color.y,current_color.z,current_color.w);
+
+
+        
 
         glBindVertexArray(quadVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);

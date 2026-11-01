@@ -50,7 +50,7 @@ To compile and run this project, you will need:
 1. **Operating System:** Windows (with support for OpenGL 3.3 or higher).
 2. **Development Environment:** 
    * **Option A (Recommended):** Visual Studio with the "Desktop development with C++" workload installed.
-   * **Option B (Alternative):** VS Code, CMake, and a modern C++ compiler (such as GCC/MinGW or Clang).
+   * **Option B (Alternative):** A modern C++ compiler (such as GCC/MinGW or Clang).
 3. **Graphics Card:** GPU with up-to-date OpenGL drivers.
 
 ---
@@ -74,20 +74,9 @@ To compile and run this project, you will need:
 
 ---
 
-## How to Build Without Visual Studio (Alternatives)
+## How to Build Without Visual Studio (Alternative)
 
-If you do not use Visual Studio, you can compile the project using alternative tools, provided you correctly configure the include paths and graphic dependencies.
-
-### Option 1: Using VS Code and CMake (Recommended)
-If you add a `CMakeLists.txt` file to the project root, you can manage GLFW, GLEW, and ImGui dependencies in an IDE-agnostic way:
-
-1. Install the **C/C++** and **CMake Tools** extensions in VS Code.
-2. Open the project root folder in VS Code.
-3. Configure the build kit (e.g., GCC/MinGW or MSVC Command Line).
-4. Click **Build** in the bottom status bar of VS Code, then **Run**.
-
-### Option 2: Direct Command Line (MinGW / GCC)
-If you prefer compiling manually via terminal (making sure to include all necessary `.cpp` files and link OpenGL, GLFW, and GLEW libraries):
+If you do not use Visual Studio, you can compile the project from the command line (MinGW / GCC), provided you correctly configure the include paths and graphic dependencies. Make sure to include all necessary `.cpp` files and link OpenGL, GLFW, and GLEW libraries:
 
 ```bash
 g++ main.cpp utils/utils.cpp shaders/programs.cpp ui/mainmenu.cpp -o gradient.exe -I. -Ivendor -lglfw3 -lglew32 -lopengl32 -lgdi32
